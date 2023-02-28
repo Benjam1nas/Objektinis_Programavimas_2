@@ -68,7 +68,7 @@ void pild(vector<studentas> &temp, int &m) {
                 cin.ignore(1000, '\n');
                 cout << "Klaidingas ivedimas" << endl;
             }
-        } while (sk != "1" && sk != "0:");
+        } while (sk != "1" && sk != "0");
         if (sk == "1") {
             atsitiktinis(temp, m);
         }
