@@ -2,7 +2,6 @@
 #include <iomanip>
 #include <string>
 #include <algorithm>
-#include <vector>
 
 using std::cout;
 using std::cin;
@@ -17,5 +16,4 @@ using std::string;
 using std::stoi;
 using std::isdigit;
 using std::copy;
-using std::vector;
 
