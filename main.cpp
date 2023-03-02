@@ -4,7 +4,10 @@ struct studentas {
     string vardas, pavarde;
     vector<int> paz;
     int egz;
-    int gal;
+    double suma = 0;
+    double galutinis_vid;
+    double galutinis_med;
+    int gal = -1;
 };
 
 bool numeris(string temp) {
@@ -15,6 +18,22 @@ bool numeris(string temp) {
         }
     }
     return tiesa;
+}
+
+bool lyginimas_1(const studentas& a, const studentas& b) {
+    return a.vardas < b.vardas;
+}
+
+bool lyginimas_2(const studentas& a, const studentas& b) {
+    return a.pavarde < b.pavarde;
+}
+
+bool lyginimas_3(const studentas& a, const studentas& b) {
+    return a.galutinis_vid < b.galutinis_vid;
+}
+
+bool lyginimas_4(const studentas& a, const studentas& b) {
+    return a.galutinis_med < b.galutinis_med;
 }
 
 void atsitiktinis(vector<studentas> &temp, int m) {
@@ -44,6 +63,7 @@ void atsitiktinis(vector<studentas> &temp, int m) {
         skaic = (rand() % 10) + 1;
         cout << i + 1 << "-as pazymys: " << skaic << endl;
         temp[m].paz.push_back(skaic);
+        temp[m].suma += skaic;
     }
     skaic = (rand() % 10) + 1;
     cout << "Egzamino pazymys: " << skaic << endl;
@@ -81,6 +101,7 @@ void pild(vector<studentas> &temp, int &m) {
                     sk_paz = stoi(paz);
                     if (sk_paz > 0 && sk_paz <= 10) {
                         temp[m].paz.push_back(sk_paz);
+                        temp[m].suma += sk_paz;
                     }
                     else if (sk_paz == 0) {
                         continue;
@@ -118,47 +139,81 @@ void pild(vector<studentas> &temp, int &m) {
     }
 }
 
-double vidurkis(vector<studentas> temp, int index) {
-    double suma = 0, kiek = 0;
-    for (int i = 0; i < temp[index].paz.size(); i++) {
-        suma += temp[index].paz[i];
-        kiek++;
-    }
-    return suma / kiek;
-}
-
-double mediana(vector<studentas> temp, int index) {
-    double mediana = 0;
-    if (temp[index].paz.size() % 2 != 0) {
-        mediana = (double) (temp[index].paz[temp[index].paz.size() / 2]);
-    }
-    else {
-        mediana = (double) (temp[index].paz[temp[index].paz.size() / 2] + temp[index].paz[temp[index].paz.size() / 2 - 1]) / 2;
-    }
-    return mediana;
-}
-
-void spausd(vector<studentas> temp, vector<double>galutinis) {
-    cout << "Pavarde" << setw(20) << "Vardas" << setw(20) << "Galutinis (Vid.)" << "  /  " << "Galutinis (Med.)" << endl;
-    cout << setfill('-') << setw(60) << "-" << endl;
-    for (int i = 0; i < temp.size(); i++) {
-        cout << left << setfill(' ') << setw(20) << temp[i].pavarde << setw(24) << temp[i].vardas;
-        if (temp[i].gal == 1) {
-            cout << left << setprecision(2) << setw(11) << galutinis[i] << setw(4) << "x.xx" << endl;
+void pild_failas(vector <studentas>& temp, int& m) {
+    string fill, x;
+    fstream data_file("kursiokai.txt", ios_base::in);
+    getline(data_file, fill);
+    temp.push_back(studentas());
+    data_file >> temp[m].vardas;
+    data_file >> temp[m].pavarde;
+    while (!data_file.eof()) {
+        data_file >> x;
+        while (numeris(x) && !data_file.eof()) {
+            temp[m].paz.push_back(stoi(x));
+            temp[m].suma += stoi(x);
+            data_file >> x;
+        }
+        if (data_file.eof()) {
+            temp[m].egz = stoi(x);
+            m++;
         }
         else {
-            cout << left << setprecision(2) << setw(11) << "x.xx" << setw(4) << galutinis[i] << endl;
+            temp[m].egz = temp[m].paz[temp[m].paz.size() - 1];
+            temp[m].paz.pop_back();
+            m++;
+            temp.push_back(studentas());
+            temp[m].vardas = x;
+            data_file >> temp[m].pavarde;
+        } 
+    }
+}
+
+void spausd(vector<studentas> temp, string skaiciuokle) {
+    fstream result_file("rezultatai.txt", ios_base::out);
+    result_file << "Pavarde" << setw(20) << "Vardas" << setw(20) << "Galutinis (Vid.)" << "  /  " << "Galutinis (Med.)" << endl;
+    result_file << setfill('-') << setw(60) << "-" << endl;
+    if (skaiciuokle == "1") {
+        for (int i = 0; i < temp.size(); i++) {
+            result_file << left << setfill(' ') << setw(20) << temp[i].pavarde << setw(24) << temp[i].vardas;
+            result_file << left << setprecision(2) << setw(11) << temp[i].galutinis_vid << setw(4) << "x.xx" << endl;
         }
     }
+    else if (skaiciuokle == "0") {
+        for (int i = 0; i < temp.size(); i++) {
+            result_file << left << setfill(' ') << setw(20) << temp[i].pavarde << setw(24) << temp[i].vardas;
+            result_file << left << setprecision(2) << setw(11) << "x.xx" << setw(4) << temp[i].galutinis_med << endl;
+        }
+    }
+    else {
+        for (int i = 0; i < temp.size(); i++) {
+            result_file << left << setfill(' ') << setw(20) << temp[i].pavarde << setw(24) << temp[i].vardas;
+            result_file << left << setprecision(2) << setw(11) << temp[i].galutinis_vid << setw(4) << temp[i].galutinis_med << endl;
+        }
+    }
+    result_file.close();
 }
 
 int main() {
     vector <studentas> stud;
-    vector<double> galutinis;
     int m = 0;
-    string skaiciuokle;
-    pild(stud, m);
-    for (int i = 0; i < stud.size(); i++) {
+    string indeksas, skaiciuokle = "-1", rusiavimas;
+    do {
+        cout << "Ar norite duomenis ivesti patys ar norite nuskaityti is failo ('1' - ivesti patys, '0' - nuskaityti is failo): ";
+        cin >> indeksas;
+        if (indeksas == "1") {
+            pild(stud, m);
+        }
+        else if (indeksas == "0") {
+            pild_failas(stud, m);
+        }
+        else {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Klaidingas ivedimas!" << endl;
+        }
+
+    } while (indeksas != "1" && indeksas != "0");
+    if (indeksas == "1") {
         cout << "Pasirinkite kokiu budu norite skaiciuoti galutini bala: '1' - vidurkiui, '0' - medianai: ";
         cin >> skaiciuokle;
         while (skaiciuokle != "1" && skaiciuokle != "0") {
@@ -168,14 +223,52 @@ int main() {
             cout << "Pasirinkite kokiu budu norite skaiciuoti galutini bala: '1' - vidurkiui, '0' - medianai: ";
             cin >> skaiciuokle;
         }
-        if (skaiciuokle == "1") {
-            stud[i].gal = 1;
-            galutinis.push_back(vidurkis(stud, i) * 0.4 + stud[i].egz * 0.6);
-        }
-        else {
-            stud[i].gal = 0;
-            galutinis.push_back(mediana(stud, i) * 0.4 + stud[i].egz * 0.6);
+        for (int i = 0; i < stud.size(); i++) {
+            if (skaiciuokle == "1") {
+                stud[i].gal = 1;
+                stud[i].galutinis_vid = (stud[i].suma / stud[i].paz.size()) * 0.4 + stud[i].egz * 0.6;
+            }
+            else {
+                stud[i].gal = 0;
+                if (stud[i].paz.size() % 2 != 0) {
+                    stud[i].galutinis_med = (double)(stud[i].paz[stud[i].paz.size() / 2]);
+                }
+                else {
+                    stud[i].galutinis_med = (double)(stud[i].paz[stud[i].paz.size() / 2] + stud[i].paz[stud[i].paz.size() / 2 - 1]) / 2;
+                }
+            }
         }
     }
-    spausd(stud, galutinis);
+    else {
+        for (int i = 0; i < stud.size(); i++) {
+            stud[i].galutinis_vid = (stud[i].suma / stud[i].paz.size()) * 0.4 + stud[i].egz * 0.6;
+            if (stud[i].paz.size() % 2 != 0) {
+                stud[i].galutinis_med = (double)(stud[i].paz[stud[i].paz.size() / 2]);
+            }
+            else {
+                stud[i].galutinis_med = (double)(stud[i].paz[stud[i].paz.size() / 2] + stud[i].paz[stud[i].paz.size() / 2 - 1]) / 2;
+            }
+        }
+    }
+    cout << "Pasirinkite kokiu budu norite isrusiuoti studentus: '1' - Pagal varda, '2' - Pagal pavarde, '3' - Pagal Galutini bala(Vid.), '4' - Pagal Galutini bala(Med.): ";
+    cin >> rusiavimas;
+    while (rusiavimas != "1" && rusiavimas != "2" && rusiavimas != "3" && rusiavimas != "4") {
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cout << "Klaidingas ivedimas!" << endl;
+        cin >> rusiavimas;
+    }
+    if (rusiavimas == "1") {
+        sort(stud.begin(), stud.end(), lyginimas_1);
+    }
+    else if (rusiavimas == "2") {
+        sort(stud.begin(), stud.end(), lyginimas_2);
+    }
+    else if (rusiavimas == "3") {
+        sort(stud.begin(), stud.end(), lyginimas_3);
+    }
+    else {
+        sort(stud.begin(), stud.end(), lyginimas_4);
+    }
+    spausd(stud, skaiciuokle);
 }
