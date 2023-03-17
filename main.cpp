@@ -1,13 +1,16 @@
 #include "MyLib.h"
 #include "header.h"
 #include "func.cpp"
-
+#include "generator.cpp"
 
 
 int main() {
-    vector <studentas> stud;
+    time_point<high_resolution_clock> start, end;
+    duration<double> laikas;
+    double generavimo_laikas, nuskaitymo_laikas, skirstymo_laikas, liudnuku_laikas, linksmuku_laikas, visas_laikas;
+    vector <studentas> stud, linksmukai, liudnukai;
     int m = 0;
-    string indeksas, skaiciuokle = "-1", rusiavimas;
+    string indeksas, skaiciuokle = "-1", rusiavimas, failai, pav, out_pav;
     do {
         cout << "Ar norite duomenis ivesti patys ar norite nuskaityti is failo ('1' - ivesti patys, '0' - nuskaityti is failo): ";
         cin >> indeksas;
@@ -15,7 +18,28 @@ int main() {
             pild(stud, m);
         }
         else if (indeksas == "0") {
-            pild_failas(stud, m);
+            cout << "Koki faila naudosite? 1 - jau sukurta, 0 - Norite sugeneruoti patys: "; cin >> failai;
+            while (failai != "0" && failai != "1") {
+                cout << "Klaidingas ivedimas!" << endl;
+                cout << "Koki faila naudosite? 1 - jau sukurta, 0 - Norite sugeneruoti patys: "; 
+                cin >> failai;
+            }
+            if (failai == "1") {
+                cout << "Koks bus failo pavadinimas: ";
+                cin >> pav;
+                pild_failas(stud, m, pav);
+            }
+            else if (failai == "0") {
+                cout << "Koks bus failo pavadinimas: ";
+                cin >> pav;
+                generavimas(pav, generavimo_laikas);
+
+                start = high_resolution_clock::now();
+                pild_failas(stud, m, pav);
+                end = high_resolution_clock::now();
+                laikas = end - start;
+                nuskaitymo_laikas = laikas.count();
+            }
         }
         else {
             cin.clear();
@@ -81,5 +105,33 @@ int main() {
     else {
         sort(stud.begin(), stud.end(), lyginimas_4);
     }
-    spausd(stud, skaiciuokle);
+    start = high_resolution_clock::now();
+    skirstymas(stud, liudnukai, linksmukai);
+    end = high_resolution_clock::now();
+    laikas = end - start;
+    skirstymo_laikas = laikas.count();
+
+    out_pav = "Liudnukai.txt";
+
+    start = high_resolution_clock::now();
+    spausd(liudnukai, skaiciuokle, out_pav);
+    end = high_resolution_clock::now();
+    laikas = end - start;
+    liudnuku_laikas = laikas.count();
+
+    out_pav = "Linksmukai.txt";
+
+    start = high_resolution_clock::now();
+    spausd(linksmukai, skaiciuokle, out_pav);
+    end = high_resolution_clock::now();
+    laikas = end - start;
+    linksmuku_laikas = laikas.count();
+
+    cout << "Naujo failo sukurimas uztruko: " << setprecision(2) << generavimo_laikas << endl
+        << "Nuskaitymas is failo uztruko: " << nuskaitymo_laikas << endl
+        << "Studentu rusiavimas uztruko: " << skirstymo_laikas << endl
+        << "Linksmuku isvedimas i faila uztruko: " << linksmuku_laikas << endl
+        << "Liudnuku isvedimas i faila uztruko: " << liudnuku_laikas << endl
+        << "Visas vykdymas uztruko: " << generavimo_laikas + nuskaitymo_laikas + linksmuku_laikas + liudnuku_laikas << endl;
+    return 0;
 }
