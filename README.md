@@ -11,6 +11,17 @@ Parašykite programą, kuri nuskaito šiuos studentų duomenis:
 5. tlikite versijos (v0.2) kodo reorganizavimą (refactoring'ą): Kur tikslinga, programoje naudokite (jeigu dar nenaudojote) struct'ūras;
 6. Funkcijas, naujus duomenų tipus (struct’ūras) perkelkite į antraštinius (angl. header (*.h)) failus, t.y. tokiu būdu turėtumete sukurtame projekte turėti kelis *.cpp failus, kaip ir kelis *.h failus.
 7. Kur tikslinga, bent minimaliai panaudokite išimčių valdymą (angl. Exception Handling).
+8. Patobulinkite (jeigu reikia, v0.3 turimą realizaciją) ir sukurkite failų generatorių (turi generuoti failus pagal mano prikabintus PVZ. failus), po to sugeneruokite penkis atsitiktinius studentų sąrašų failus, sudarytus iš: 1 000, 10 000, 100 000, 1 000 000, 10 000 000 įrašų. Vardus ir Pavardes galite generuoti "šabloninius", kaip pvz. Vardas1 Pavarde1, Vardas2 Pavarde2 ir t.t. Su kiekvienu failu atskirai atlikite tokius veiksmus.
+9. Surūšiuokite (padalinkite) studentus į dvi kategorijas:
+      1) Studentai, kurių galutinis balas < 5.0 galėtume vadinti “vargšiukai”, “nuskriaustukai” ir pan.
+      2) Studentai, kurių galutinis balas >= 5.0 galėtume vadinti "kietiakiai", "galvočiai" ir pan.
+10. Surūšiuotus studentus išveskite į du naujus failus.
+11. Atlikite programos veikimo greičio (spartos) analizę: t.y. išmatuokite programos spartą išskiriant kiek laiko užtruko kiekvienas iš žemiau išvardintų žingsnių:
+1 matavimas failų kūrimą ir jo užtarimą (galima nenaudoti vektorių o tiesiog išvedinėti duomenys į failą - matuokite tik neturint pradinio failo); 
+      1) duomenų nuskaitymą iš failo (paprastai matavimo pradžią, kadangi reikia skaityti tos pačius failus kad operacijų kiekis išliktu toks pat);
+      2) studentų rūšiavimą į dvi grupes/kategorijas;
+      3) surūšiuotų studentų išvedimą į du naujus failus.
+      4) visos programos veikimo laiką.
 
 Užduoties atlikimas:
 
@@ -20,14 +31,19 @@ Užduoties atlikimas:
 4. Abu "Header" failai yra include'inami į main.cpp ir func.cpp failus.
 5. Aprašoma struktūrą iš vardo, pavardės, pažymių, pažymių skaičiaus, egzamino ir galutinio pažymio indekso tam, kad galima būtų atskirti ar išvedimo metu naudosime medianą ar vidurkį.
 6. Naudojamas struktūrinis vektorius.
-7. Iš pradžių užpildome savo vektorių. Parašoma nauja void tipo funkcija vektoriui užpildyti. Galime pasirinkti ar vartotojas nori pats užpildyti ar būtų naudojama įvestis iš failo.
-8. Parašoma išimtis jei programa nenuskaitytų duomenų failo. 
-10. Pildymo funkcija vyksta tol, kol vartotojas nusprendžia pats ją sustabdyti parašęs "Stop".
-11. Pildymo funkcijos metu yra užpildomas vektorius vardais ir pavardėms, taip pat pildymo metu vartotojas yra paklaustas ar nori pats įrašyti pažymius ar nori, kad programa jam sugeneruotų automatiškai tiek, kiek vartotojas pats įveda.
-12. Automatiniam programos įvedimui yra aprašoma atskira void tipo funkcija "atsitiktinis" ir random principu nuo 1 iki 10 yra parenkamas skaičius. Taip pat automatiškai sugeneruojamas egzamino balas.
-13. Tam tikri vartotojų įvedimai yra tikrinami pvz.: Jeigu vartotojas turi įrašyti skaičių yra žiūrima ar visų pirma jis įrašė skaičių (tam yra naudojama atskira bool tipo funkcija "numeris", kurios metu stoi(string pav.) principu yra žiūrima ar vartotojas įrašė skaičių), tada yra tikrinama ar tas skaičius yra rėžiuose (pažymys negali būti didesniu už 10 arba neigiamas skaičius). Jeigu įvesta klaidingai konsolėje yra parašoma: "Klaidingas įvedimas".
-14. Pabaigus pildymui grįžtame į main fukncija ir klausiama ar vartotojas nori, kad galutinis balas būtų skaičiuojamas su vidurkiu ar mediana.
-15. Atitinkamai vidurkiui ir medianai yra parašomos atskiros double tipo funkcijos "vidurkis" ir "mediana".
-16. Vartotojo yra klausiama, kokiu būdu jis norėtų išrušiuoti savo įvestį( Pagal vardus, pavardes, galutini balą su vidurkiu arba galutinį balą su mediana).
-17. Išrusiavimui yra naudojama sort funkcija kartu su lyginimo funkcijomis (4 atskiros funkcijos kiekvienam lyginimui).
-18. Galiausiai vykdomas spausdinimas, kuomet į failą yra išvedama: vardas, pavardė, galutinis balas (vidurkio ir medianos skaičiavimais). 
+7. Sukuriamas atskiras cpp failas "generatorius.cpp", kuriame bus kuriamas failų generatorius.
+8. Sukuriama fukncija void "generavimas". Į ją yra perduodamas vartotojo įvestas failo pavadinimas. 
+9. Iš pradžių yra prašoma įvesti studentų ir jų pažymių kiekį. Po to yra generuojamas failas su šabloniniais vardais (Vardas0, Pavardė0, Vardas1, Pavardė2).
+10. Kodui paspartinti string tipo kintamuosius surašome į eilutę ir tada išspausdiname į failą. 
+11. Užpildome savo vektorių. Parašoma nauja void tipo funkcija vektoriui užpildyti. Galime pasirinkti ar vartotojas nori pats užpildyti ar būtų naudojama įvestis iš failo, ar vartotojas nori sugeneruoti savo failą ir iš jo užpildyti vektorių.
+12. Parašoma išimtis jei programa nenuskaitytų duomenų failo. 
+13. Pildymo funkcija vyksta tol, kol vartotojas nusprendžia pats ją sustabdyti parašęs "Stop".
+14. Pildymo funkcijos metu yra užpildomas vektorius vardais ir pavardėms, taip pat pildymo metu vartotojas yra paklaustas ar nori pats įrašyti pažymius ar nori, kad programa jam sugeneruotų automatiškai tiek, kiek vartotojas pats įveda.
+15. Automatiniam programos įvedimui yra aprašoma atskira void tipo funkcija "atsitiktinis" ir random principu nuo 1 iki 10 yra parenkamas skaičius. Taip pat automatiškai sugeneruojamas egzamino balas.
+16. Tam tikri vartotojų įvedimai yra tikrinami pvz.: Jeigu vartotojas turi įrašyti skaičių yra žiūrima ar visų pirma jis įrašė skaičių (tam yra naudojama atskira bool tipo funkcija "numeris", kurios metu stoi(string pav.) principu yra žiūrima ar vartotojas įrašė skaičių), tada yra tikrinama ar tas skaičius yra rėžiuose (pažymys negali būti didesniu už 10 arba neigiamas skaičius). Jeigu įvesta klaidingai konsolėje yra parašoma: "Klaidingas įvedimas".
+17. Pabaigus pildymui grįžtame į main funkciją ir klausiama ar vartotojas nori, kad galutinis balas būtų skaičiuojamas su vidurkiu ar mediana.
+18. Atitinkamai vidurkiui ir medianai yra parašomos atskiros double tipo funkcijos "vidurkis" ir "mediana".
+19. Vartotojo yra klausiama, kokiu būdu jis norėtų išrušiuoti savo įvestį( Pagal vardus, pavardes, galutini balą su vidurkiu arba galutinį balą su mediana).
+20. Išrusiavimui yra naudojama sort funkcija kartu su lyginimo funkcijomis (4 atskiros funkcijos kiekvienam lyginimui).
+21. Išrušiuotas vektorius yra perošomas į du atskirus vektorius. Tų mokinių, kurių galutinis balas yra mažesnis už penkis yra atskirti į liudnukus, o tų kurių yra penki arba daugiau atskiriami į linksmukus.
+22. Galiausiai vykdomas spausdinimas, kuomet į du failus (Liudnuku ir linksmuku) yra išvedama: vardas, pavardė, galutinis balas (vidurkio ir medianos skaičiavimais). 
