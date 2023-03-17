@@ -4,6 +4,10 @@
 #include <algorithm>
 #include <vector>
 #include <fstream>
+#include <cstdlib>
+#include <sstream>
+#include <chrono>
+#include <random>
 
 
 using std::cout;
@@ -24,4 +28,10 @@ using std::fstream;
 using std::ios_base;
 using std::getline;
 using std::sort;
+using std::ofstream;
+using std::stringstream;
+using std::ifstream;
+using std::to_string;
+using namespace std::chrono;
+
 
