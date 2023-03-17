@@ -48,3 +48,11 @@ Užduoties atlikimas:
 21. Išrušiuotas vektorius yra perošomas į du atskirus vektorius. Tų mokinių, kurių galutinis balas yra mažesnis už penkis yra atskirti į liudnukus, o tų kurių yra penki arba daugiau atskiriami į linksmukus.
 22. Galiausiai vykdomas spausdinimas, kuomet į du failus (Liudnuku ir linksmuku) yra išvedama: vardas, pavardė, galutinis balas (vidurkio ir medianos skaičiavimais).
 23. Generavimo, failo nuskaitymo, išskirstymo (į liudnukus ir linksmukus), spausdinimo fukncijų vykdymo laikai yra matuojami naudojant high_resolution_clock (chrono bilblioteka) taip pat matuojamas visas failo atlikimo laikas ir visi laikai yra išvedami pasibaigus programai. 
+
+|Failo dydis|Failo generavimo trukmė|Nuskaitymo trukmė|Rusiavimo trukmė|Linksmuku išvedimo trukmė|Liudnukų išvedimo trukmė|Bendras vykdymas|
+|-----------|-----------------------|-----------------|----------------|-------------------------|------------------------|----------------|
+|1000       |0.0038s                |0.036s           |0.00034s        |0.0028s                  |0.0045s                 |0.047s          |
+|10000      |0.031s                 |0.041s           |0.0024s         |0.0092s                  |0.0042s                 |0.085s          |
+|100000     |0.3s                   |0.34s            |0.041s          |0.059s                   |0.049s                  |0.75s           |
+|1000000    |3s                     |3.5s             |0.38s           |0.61s                    |0.41s                   |7.5s            |
+|10000000   |34s                    |39s              |6.6s            |13s                      |6.6s                    |93s             |
