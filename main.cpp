@@ -7,7 +7,7 @@
 int main() {
     time_point<high_resolution_clock> start, end;
     duration<double> laikas;
-    double generavimo_laikas, nuskaitymo_laikas, skirstymo_laikas, liudnuku_laikas, linksmuku_laikas, visas_laikas;
+    double generavimo_laikas = 0, nuskaitymo_laikas, skirstymo_laikas, liudnuku_laikas, linksmuku_laikas, visas_laikas;
     vector <studentas> stud, linksmukai, liudnukai;
     int m = 0;
     string indeksas, skaiciuokle = "-1", rusiavimas, failai, pav, out_pav;
