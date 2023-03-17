@@ -130,11 +130,11 @@ void pild(vector<studentas>& temp, int& m) {
     }
 }
 
-void pild_failas(vector <studentas>& temp, int& m) {
+void pild_failas(vector <studentas>& temp, int& m, string pav) {
     string fill, x;
     bool yra = true;
     try {
-        fstream data_file("kursiokai.txt", ios_base::in);
+        ifstream data_file(pav);
         if (!data_file) {
             throw (!yra);
         }
@@ -150,7 +150,7 @@ void pild_failas(vector <studentas>& temp, int& m) {
             cout << "Sekmingai atidarytas duomenu failas!" << endl;
         }
     }
-    fstream data_file("kursiokai.txt", ios_base::in);
+    ifstream data_file(pav);
     getline(data_file, fill);
     temp.push_back(studentas());
     data_file >> temp[m].vardas;
@@ -176,29 +176,48 @@ void pild_failas(vector <studentas>& temp, int& m) {
         }
     }
     data_file.close();
+
 }
 
-void spausd(vector<studentas> temp, string skaiciuokle) {
-    fstream result_file("rezultatai.txt", ios_base::out);
-    result_file << "Pavarde" << setw(20) << "Vardas" << setw(20) << "Galutinis (Vid.)" << "  /  " << "Galutinis (Med.)" << endl;
-    result_file << setfill('-') << setw(60) << "-" << endl;
+void skirstymas(vector<studentas> &temp, vector<studentas> &liudnukai, vector<studentas> &linksmukai) {
+    int x = 0, y = 0;
+    for (int i = 0; i < temp.size(); i++) {
+        if (temp[i].galutinis_vid < 5.0) {
+            liudnukai.push_back(studentas());
+            liudnukai[x] = temp[i];
+            x++;
+        }
+        else if(temp[i].galutinis_vid >= 5.0) {
+            linksmukai.push_back(studentas());
+            linksmukai[y] = temp[i];
+            y++;
+        }
+    }
+}
+
+void spausd(vector<studentas> temp, string skaiciuokle, string out_pav) {
+    ofstream zmogeliukai(out_pav);
+    char eilut[100];
+    zmogeliukai << "Pavarde" << setw(20) << "Vardas" << setw(20) << "Galutinis (Vid.)" << "  /  " << "Galutinis (Med.)" << endl;
+    zmogeliukai << setfill('-') << setw(60) << "-" << endl;
+    string filler = "x.xx";
     if (skaiciuokle == "1") {
         for (int i = 0; i < temp.size(); i++) {
-            result_file << left << setfill(' ') << setw(20) << temp[i].pavarde << setw(24) << temp[i].vardas;
-            result_file << left << setprecision(2) << setw(11) << temp[i].galutinis_vid << setw(4) << "x.xx" << endl;
+            sprintf_s(eilut, "% *s % *s % *.2f % *s\n", -20, temp[i].pavarde.c_str(), -20, temp[i].vardas.c_str(), 5, temp[i].galutinis_vid, 5, filler.c_str());
+            zmogeliukai << eilut;
         }
     }
     else if (skaiciuokle == "0") {
         for (int i = 0; i < temp.size(); i++) {
-            result_file << left << setfill(' ') << setw(20) << temp[i].pavarde << setw(24) << temp[i].vardas;
-            result_file << left << setprecision(2) << setw(11) << "x.xx" << setw(4) << temp[i].galutinis_med << endl;
+            sprintf_s(eilut, "% *s % *s % *s % *.2f\n", -20, temp[i].pavarde.c_str(), -20, temp[i].vardas.c_str(), 5, filler.c_str(), 5, temp[i].galutinis_med);
+            zmogeliukai << eilut;
         }
     }
     else {
         for (int i = 0; i < temp.size(); i++) {
-            result_file << left << setfill(' ') << setw(20) << temp[i].pavarde << setw(24) << temp[i].vardas;
-            result_file << left << setprecision(2) << setw(11) << temp[i].galutinis_vid << setw(4) << temp[i].galutinis_med << endl;
+            sprintf_s(eilut, "% *s % *s % *.2f % *.2f\n", -20, temp[i].pavarde.c_str(), -20, temp[i].vardas.c_str(), 5, temp[i].galutinis_vid, 5, temp[i].galutinis_med);
+            zmogeliukai << eilut;
         }
     }
-    result_file.close();
+    zmogeliukai.close();
 }
