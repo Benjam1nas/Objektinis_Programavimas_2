@@ -46,4 +46,5 @@ Užduoties atlikimas:
 19. Vartotojo yra klausiama, kokiu būdu jis norėtų išrušiuoti savo įvestį( Pagal vardus, pavardes, galutini balą su vidurkiu arba galutinį balą su mediana).
 20. Išrusiavimui yra naudojama sort funkcija kartu su lyginimo funkcijomis (4 atskiros funkcijos kiekvienam lyginimui).
 21. Išrušiuotas vektorius yra perošomas į du atskirus vektorius. Tų mokinių, kurių galutinis balas yra mažesnis už penkis yra atskirti į liudnukus, o tų kurių yra penki arba daugiau atskiriami į linksmukus.
-22. Galiausiai vykdomas spausdinimas, kuomet į du failus (Liudnuku ir linksmuku) yra išvedama: vardas, pavardė, galutinis balas (vidurkio ir medianos skaičiavimais). 
+22. Galiausiai vykdomas spausdinimas, kuomet į du failus (Liudnuku ir linksmuku) yra išvedama: vardas, pavardė, galutinis balas (vidurkio ir medianos skaičiavimais).
+23. Generavimo, failo nuskaitymo, išskirstymo (į liudnukus ir linksmukus), spausdinimo fukncijų vykdymo laikai yra matuojami naudojant high_resolution_clock (chrono bilblioteka) taip pat matuojamas visas failo atlikimo laikas ir visi laikai yra išvedami pasibaigus programai. 
