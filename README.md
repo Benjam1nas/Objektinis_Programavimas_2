@@ -22,6 +22,12 @@ Parašykite programą, kuri nuskaito šiuos studentų duomenis:
       2) studentų rūšiavimą į dvi grupes/kategorijas;
       3) surūšiuotų studentų išvedimą į du naujus failus.
       4) visos programos veikimo laiką.
+12. Konteinerių testavimas: Išmatuokite patobulintos v0.4 realizacijos veikimo spartą priklausomai nuo naudojamų trijų skirtingų tipų konteinerių (t.y. tureti arba vieną programą su treis skirtingais konteineriais, arba tris skirtingas programas su atitinkamais konteineriais): 
+
+std::vector
+std::list
+std::deque
+T.y., jeigu Jūs turite susikurę struktūrą Studentai (ar kaip jūs ją pavadinote) ir iki v0.4 naudojote std::vector<Studentai>, tai turite ištirti: ar pasikeistų ir kaip pasikeistų programos sparta, jei vietoje std::vector<Studentai> naudotumėte std::list<Studentai> ir std::deque<Studentai>.
 
 Užduoties atlikimas:
 
@@ -30,7 +36,7 @@ Užduoties atlikimas:
 3. Iš main programos perkeliame fukncijas į naują cpp failą (func.cpp).
 4. Abu "Header" failai yra include'inami į main.cpp ir func.cpp failus.
 5. Aprašoma struktūrą iš vardo, pavardės, pažymių, pažymių skaičiaus, egzamino ir galutinio pažymio indekso tam, kad galima būtų atskirti ar išvedimo metu naudosime medianą ar vidurkį.
-6. Naudojamas struktūrinis vektorius.
+6. Naudojamas struktūrinis vektorius, listas ir dequeas. Visi jie naudojami skirtingose failuose.
 7. Sukuriamas atskiras cpp failas "generatorius.cpp", kuriame bus kuriamas failų generatorius.
 8. Sukuriama fukncija void "generavimas". Į ją yra perduodamas vartotojo įvestas failo pavadinimas. 
 9. Iš pradžių yra prašoma įvesti studentų ir jų pažymių kiekį. Po to yra generuojamas failas su šabloniniais vardais (Vardas0, Pavardė0, Vardas1, Pavardė2).
@@ -49,10 +55,24 @@ Užduoties atlikimas:
 22. Galiausiai vykdomas spausdinimas, kuomet į du failus (Liudnuku ir linksmuku) yra išvedama: vardas, pavardė, galutinis balas (vidurkio ir medianos skaičiavimais).
 23. Generavimo, failo nuskaitymo, išskirstymo (į liudnukus ir linksmukus), spausdinimo fukncijų vykdymo laikai yra matuojami naudojant high_resolution_clock (chrono bilblioteka) taip pat matuojamas visas failo atlikimo laikas ir visi laikai yra išvedami pasibaigus programai. 
 
-|Failo dydis|Failo generavimo trukmė|Nuskaitymo trukmė|Rusiavimo trukmė|Linksmuku išvedimo trukmė|Liudnukų išvedimo trukmė|Bendras vykdymas|
-|-----------|-----------------------|-----------------|----------------|-------------------------|------------------------|----------------|
-|1000       |0.0038s                |0.036s           |0.00034s        |0.0028s                  |0.0045s                 |0.047s          |
-|10000      |0.031s                 |0.041s           |0.0024s         |0.0092s                  |0.0042s                 |0.085s          |
-|100000     |0.3s                   |0.34s            |0.041s          |0.059s                   |0.049s                  |0.75s           |
-|1000000    |3s                     |3.5s             |0.38s           |0.61s                    |0.41s                   |7.5s            |
-|10000000   |34s                    |39s              |6.6s            |13s                      |6.6s                    |93s             |
+Failas su vektoriais yra vector_main kataloge, listais - list_main kataloge, dequeais - deque_main.
+
+Vektoriai:
+
+|Failo dydis|Nuskaitymo trukmė|Rusiavimo trukmė|Skirstymo trukmė|
+|-----------|-----------------|----------------|----------------|
+|1000       |0.015s           |0.00091s        |0.0015s         |
+|10000      |0.053s           |0.0018s         |0.0026s         |
+|100000     |0.49s            |0.019s          |0.048s          |
+|1000000    |3.5s             |0.38s           |0.61s           |
+|10000000   |39s              |6.6s            |13s             |
+
+Listai:
+
+|Failo dydis|Nuskaitymo trukmė|Rusiavimo trukmė|Skirstymo trukmė|
+|-----------|-----------------|----------------|----------------|
+|1000       |0.0088s          |0.00014s        |0.002s          |
+|10000      |0.32s            |0.0029s         |0.027s          |
+|100000     |1.3s             |0.075s          |0.29s           |
+|1000000    |3.5s             |0.38s           |0.61s           |
+|10000000   |39s              |6.6s            |13s             |
