@@ -74,5 +74,21 @@ Listai:
 |1000       |0.0088s          |0.00014s        |0.002s          |
 |10000      |0.32s            |0.0029s         |0.027s          |
 |100000     |1.3s             |0.075s          |0.29s           |
-|1000000    |3.5s             |0.38s           |0.61s           |
-|10000000   |39s              |6.6s            |13s             |
+|1000000    |24s              |1.3s            |0.82s           |
+|10000000   |71s              |19s             |17s             |
+      
+Dequeai:
+
+|Failo dydis|Nuskaitymo trukmė|Rusiavimo trukmė|Skirstymo trukmė|
+|-----------|-----------------|----------------|----------------|
+|1000       |0.022s           |0.0022s         |0.002s          |
+|10000      |0.14s            |0.014s          |0.018s          |
+|100000     |1s               |0.19s           |0.19s           |
+|1000000    |11s              |1.9s            |2s              |
+|10000000   |80s              |24s             |49s             |
+      
+Kompiuterio parametrai:
+     RAM: 8.00 GB (7.73 GB usable)
+     CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz   1.38 GHz
+     SSD: <img width="349" alt="Screenshot 2023-03-31 132646" src="https://user-images.githubusercontent.com/116347949/229095849-771d1740-bfc4-4cba-b6a3-a5552336cbd9.png">
+
