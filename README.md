@@ -64,7 +64,6 @@ Failas su vektoriais yra vector_main kataloge, listais - list_main kataloge, deq
 |Vector           |0.00091s |0.019s |0.0018s|0.38s  |6.6s    |
 |List             |0.00014s |0.0029s|0.075s |1.3s   |19s     |
 |Deque            |0.0022s  |0.014s |0.19s  |1.9s   |24s     |
-|Vector (updated) |         |       |       |       |        |
       
 2 Strategijos rūšiavimo trukmė:
       
@@ -73,7 +72,6 @@ Failas su vektoriais yra vector_main kataloge, listais - list_main kataloge, deq
 |Vector           |0.00091s |0.019s |0.0018s|0.38s  |6.6s    |
 |List             |0.00014s |0.0029s|0.075s |1.3s   |19s     |
 |Deque            |0.0022s  |0.014s |0.19s  |1.9s   |24s     |
-|Vector (updated) |         |       |       |       |        |
   
 
       
