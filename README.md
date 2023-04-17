@@ -57,35 +57,25 @@ Užduoties atlikimas:
 
 Failas su vektoriais yra vector_main kataloge, listais - list_main kataloge, dequeais - deque_main.
 
-Vektoriai:
-
-|Failo dydis|Nuskaitymo trukmė|Rusiavimo trukmė|Skirstymo trukmė|
-|-----------|-----------------|----------------|----------------|
-|1000       |0.015s           |0.00091s        |0.0015s         |
-|10000      |0.053s           |0.0018s         |0.0026s         |
-|100000     |0.49s            |0.019s          |0.048s          |
-|1000000    |3.5s             |0.38s           |0.61s           |
-|10000000   |39s              |6.6s            |13s             |
-
-Listai:
-
-|Failo dydis|Nuskaitymo trukmė|Rusiavimo trukmė|Skirstymo trukmė|
-|-----------|-----------------|----------------|----------------|
-|1000       |0.0088s          |0.00014s        |0.002s          |
-|10000      |0.32s            |0.0029s         |0.027s          |
-|100000     |1.3s             |0.075s          |0.29s           |
-|1000000    |24s              |1.3s            |0.82s           |
-|10000000   |71s              |19s             |17s             |
+1 Strategijos rūšiavimo trukmė:
       
-Dequeai:
+|Konteinerio tipas|1000     |10000  |100000 |1000000|10000000|
+|-----------------|---------|-------|-------|-------|--------|
+|Vector           |0.00091s |0.019s |0.019s |0.38s  |6.6s    |
+|List             |0.00014s |0.0029s|0.075s |1.3s   |19s     |
+|Deque            |0.0022s  |0.014s |0.19s  |1.9s   |24s     |
+|Vector (updated) |         |       |       |       |        |
+      
+2 Strategijos rūšiavimo trukmė:
+      
+|Konteinerio tipas|1000     |10000  |100000 |1000000|10000000|
+|-----------------|---------|-------|-------|-------|--------|
+|Vector           |0.00091s |0.019s |0.019s |0.38s  |6.6s    |
+|List             |0.00014s |0.0029s|0.075s |1.3s   |19s     |
+|Deque            |0.0022s  |0.014s |0.19s  |1.9s   |24s     |
+|Vector (updated) |         |       |       |       |        |
+  
 
-|Failo dydis|Nuskaitymo trukmė|Rusiavimo trukmė|Skirstymo trukmė|
-|-----------|-----------------|----------------|----------------|
-|1000       |0.022s           |0.0022s         |0.002s          |
-|10000      |0.14s            |0.014s          |0.018s          |
-|100000     |1s               |0.19s           |0.19s           |
-|1000000    |11s              |1.9s            |2s              |
-|10000000   |80s              |24s             |49s             |
       
 Kompiuterio parametrai:
 RAM: 8.00 GB (7.73 GB usable)
