@@ -61,7 +61,7 @@ Failas su vektoriais yra vector_main kataloge, listais - list_main kataloge, deq
       
 |Konteinerio tipas|1000     |10000  |100000 |1000000|10000000|
 |-----------------|---------|-------|-------|-------|--------|
-|Vector           |0.00091s |0.019s |0.019s |0.38s  |6.6s    |
+|Vector           |0.00091s |0.019s |0.0018s|0.38s  |6.6s    |
 |List             |0.00014s |0.0029s|0.075s |1.3s   |19s     |
 |Deque            |0.0022s  |0.014s |0.19s  |1.9s   |24s     |
 |Vector (updated) |         |       |       |       |        |
@@ -70,7 +70,7 @@ Failas su vektoriais yra vector_main kataloge, listais - list_main kataloge, deq
       
 |Konteinerio tipas|1000     |10000  |100000 |1000000|10000000|
 |-----------------|---------|-------|-------|-------|--------|
-|Vector           |0.00091s |0.019s |0.019s |0.38s  |6.6s    |
+|Vector           |0.00091s |0.019s |0.0018s|0.38s  |6.6s    |
 |List             |0.00014s |0.0029s|0.075s |1.3s   |19s     |
 |Deque            |0.0022s  |0.014s |0.19s  |1.9s   |24s     |
 |Vector (updated) |         |       |       |       |        |
