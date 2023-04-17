@@ -61,18 +61,21 @@ Failas su vektoriais yra vector_main kataloge, listais - list_main kataloge, deq
       
 |Konteinerio tipas|1000     |10000  |100000 |1000000|10000000|
 |-----------------|---------|-------|-------|-------|--------|
-|Vector           |0.00091s |0.019s |0.0018s|0.38s  |6.6s    |
-|List             |0.00014s |0.0029s|0.075s |1.3s   |19s     |
-|Deque            |0.0022s  |0.014s |0.19s  |1.9s   |24s     |
+|Vector           |0.0015s  |0.0026s|0.048s |0.61s  |13s     |
+|List             |0.002s   |0.027s |0.29s  |0.82s  |17s     |
+|Deque            |0.002s   |0.018s |0.19s  |2s     |49s     |
       
 2 Strategijos rūšiavimo trukmė:
       
-|Konteinerio tipas|1000     |10000  |100000 |1000000|10000000|
-|-----------------|---------|-------|-------|-------|--------|
-|Vector           |0.00091s |0.019s |0.0018s|0.38s  |6.6s    |
-|List             |0.00014s |0.0029s|0.075s |1.3s   |19s     |
-|Deque            |0.0022s  |0.014s |0.19s  |1.9s   |24s     |
-  
+|Konteinerio tipas   |1000     |10000  |100000 |1000000|10000000|
+|--------------------|---------|-------|-------|-------|--------|
+|Vector              |0.012s   |0.24s  |49s    |...    |...     |
+|Vector(su remove_if)|0.00043s |0.0038s|0.021s |0.24s  |7.3s    |
+|Vector(su copy_if)  |0.00025s |0.0017s|0.013s |0.17s  |1.7s    |
+|List                |0.00014s |0.0029s|0.075s |1.3s   |19s     |
+|Deque               |0.0022s  |0.014s |0.19s  |1.9s   |24s     |
+
+Vektoriaus erase funkcija vėl pereina per masyva, dirbant su dideliais duomenimis tai užtrunka labai ilgai, gaunasi praktiškai cikclas cikle, su remove_if gaunasi lyg pereiti per cikla 2 kartus. Mano nuomone, geriausia būtų daryti su copy_if, kadangi tai prilygsta 1 perėjimui per ciklą (tas matosi ir laikuose).
 
       
 Kompiuterio parametrai:
