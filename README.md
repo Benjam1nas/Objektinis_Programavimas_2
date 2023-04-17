@@ -72,8 +72,8 @@ Failas su vektoriais yra vector_main kataloge, listais - list_main kataloge, deq
 |Vector                           |0.012s   |0.24s  |49s    |...    |...     |
 |Vector(su remove_if)             |0.00043s |0.0038s|0.021s |0.24s  |7.3s    |
 |Vector(su remove_if ir copy_if)  |0.0003s  |0.0012s|0.018s |0.21s  |3.1s    |
-|List                             |0.00014s |0.0029s|0.075s |1.3s   |19s     |
-|Deque                            |0.0022s  |0.014s |0.19s  |1.9s   |24s     |
+|List                             |0.00026s |0.0017s|0.02s  |0.25s  |23s     |
+|Deque                            |0.00027s |0.0028s|0.048s |0.58s  |19s     |
 
 Vektoriaus erase funkcija vėl pereina per masyva, dirbant su dideliais duomenimis tai užtrunka labai ilgai, gaunasi praktiškai cikclas cikle, su remove_if gaunasi lyg pereiti per cikla 2 kartus. Sujungiant kartu su copy_if sparta dar labiau padidėja.
 
