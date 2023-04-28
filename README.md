@@ -1,6 +1,5 @@
 # Objektinis-Programavimas-labarotiniai-darbai
 VU MIF studento Beno Sakalausko objektinio programavimo laboratoriniai darbai ir jų versijos
-V0.1:
 
 Užduotis:
 Parašykite programą, kuri nuskaito šiuos studentų duomenis:
@@ -85,3 +84,12 @@ SSD: <img width="349" alt="Screenshot 2023-03-31 132646" src="https://user-image
       
 # Objektinis-Programavimas-labarotiniai-darbai-2
 
+Užduotis:
+1. Pratęskite (tuo pačiu ir patobulinkite) 2-osios užduoties Jūsų turimą programos realizaciją (versiją v1.0) taip, kad vietoje Jūsų sukurtos Studentas (StudentoInfo) ar dar kitaip pavadintos Studentų structūros jos pagrindu sukurkite class'ę, vadovaujantis per teorijos paskaitas nurodomomis "geromis praktikomis".
+
+Failo veikimo sparta:
+
+|Tipas  |1000     |10000  |100000 |1000000|10000000|
+|-------|---------|-------|-------|-------|--------|
+|Class  |0.0089s  |0.054s |0.33s  |3s     |39s     |
+|Struct |0.066s   |0.068s |0.53s  |3.5s   |48s     |
