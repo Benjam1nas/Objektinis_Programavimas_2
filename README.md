@@ -82,4 +82,6 @@ Kompiuterio parametrai:
 RAM: 8.00 GB (7.73 GB usable)
 CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz   1.38 GHz
 SSD: <img width="349" alt="Screenshot 2023-03-31 132646" src="https://user-images.githubusercontent.com/116347949/229095849-771d1740-bfc4-4cba-b6a3-a5552336cbd9.png">
+      
+# Objektinis-Programavimas-labarotiniai-darbai-2
 
