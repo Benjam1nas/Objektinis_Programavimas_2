@@ -1,4 +1,4 @@
-﻿#ifndef HEADER_H_INCLUDED
+#ifndef HEADER_H_INCLUDED
 #define HEADER_H_INCLUDED
 
 #include "MyLib.h"
@@ -19,6 +19,38 @@ public:
         suma = 0;
         gal = -1;
     }
+
+    // Destruktorius
+    ~studentas() { paz.clear(); }
+
+    // Copy konstruktorius
+    studentas(const studentas& temp) {
+        vardas = temp.vardas;
+        pavarde = temp.pavarde;
+        paz = temp.paz;
+        egz = temp.egz;
+        suma = temp.suma;
+        galutinis_vid = temp.galutinis_vid;
+        galutinis_med = temp.galutinis_med;
+        gal = temp.gal;
+    }
+
+    // Copy priskirimo konstruktorius
+    studentas& operator=(const studentas& temp) {
+        if (this != &temp) {
+            vardas = temp.vardas;
+            pavarde = temp.pavarde;
+            paz = temp.paz;
+            egz = temp.egz;
+            suma = temp.suma;
+            galutinis_vid = temp.galutinis_vid;
+            galutinis_med = temp.galutinis_med;
+            gal = temp.gal;
+        }
+        return *this;
+    }
+
+
     inline string getVardas() const { return vardas; }
     void setVardas(string vardas_) { vardas = vardas_; }
     inline string getPavarde() const { return pavarde; }
