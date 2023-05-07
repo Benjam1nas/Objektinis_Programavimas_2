@@ -86,6 +86,7 @@ SSD: <img width="349" alt="Screenshot 2023-03-31 132646" src="https://user-image
 
 Užduotis:
 1. Pratęskite (tuo pačiu ir patobulinkite) 2-osios užduoties Jūsų turimą programos realizaciją (versiją v1.0) taip, kad vietoje Jūsų sukurtos Studentas (StudentoInfo) ar dar kitaip pavadintos Studentų structūros jos pagrindu sukurkite class'ę, vadovaujantis per teorijos paskaitas nurodomomis "geromis praktikomis".
+2. Realizuokite visus reikiamus (realizuokitė "Rule of  five") ir labiausiai tinkančius Jūsų programos veikimui pagerinti (mažiausiai vieną, turintį prasmę - t.y. cout ar cin) ir tik šiuos operatorius Jūsų turimai Studentas klasei. Pažymiu, kad nebūtinai visi realizuoti operatoriai turi būti panaudoti Jūsų programose - atminkite, kad Jūs kuriate/kursite programas ne tik sau, todėl įvertinkite ko gali prireikti ateities vartotojams naudojantiems Jūsų Studentas klasę!
 
 Failo veikimo sparta:
 
@@ -93,3 +94,7 @@ Failo veikimo sparta:
 |-------|---------|-------|-------|-------|--------|
 |Class  |0.0089s  |0.054s |0.33s  |3s     |39s     |
 |Struct |0.066s   |0.068s |0.53s  |3.5s   |48s     |
+
+V1.2 versijoje pakeistas header failas. Sukurtas destruktorius nebereikalingai atminčiai naikinti, kopijavimo konstruktorius, kuris kuria kopijas kito objekto taip taupant atmintį, kopijavimo priskirimo konstruktorius, kuris priskiria reikšmes. 
+<img width="287" alt="Header update 1 2" src="https://user-images.githubusercontent.com/116347949/236667414-314829a4-d63f-4040-a215-4e82ceda6494.png">
+
