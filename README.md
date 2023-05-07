@@ -96,5 +96,6 @@ Failo veikimo sparta:
 |Struct |0.066s   |0.068s |0.53s  |3.5s   |48s     |
 
 V1.2 versijoje pakeistas header failas. Sukurtas destruktorius nebereikalingai atminčiai naikinti, kopijavimo konstruktorius, kuris kuria kopijas kito objekto taip taupant atmintį, kopijavimo priskirimo konstruktorius, kuris priskiria reikšmes. 
+
 <img width="287" alt="Header update 1 2" src="https://user-images.githubusercontent.com/116347949/236667414-314829a4-d63f-4040-a215-4e82ceda6494.png">
 
