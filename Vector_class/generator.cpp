@@ -1,4 +1,20 @@
+/** 
+@file generator.cpp
+
+@brief Generates a file with random student data
+
+*/
+
 #include "header.h"
+
+/**
+
+@brief Generates a file with random student data.
+
+@param pav The name of the output file.
+
+@param generavimo_laikas The time taken to generate the file.
+*/
 
 void generavimas(string& pav, double& generavimo_laikas) {
 	time_point<high_resolution_clock> start, end;
