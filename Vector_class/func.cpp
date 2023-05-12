@@ -1,5 +1,15 @@
+/**
+ * @file func.cpp
+ * @brief This file includes all program functions
+ */
 #include "header.h"
 
+/**
+ * @brief Check if a string consists only of digits.
+ *
+ * @param temp The string to check.
+ * @return true if all characters in the string are digits, false otherwise.
+ */
 bool numeris(string temp) {
     bool tiesa = true;
     for (int i = 0; i < temp.size(); i++) {
@@ -10,22 +20,58 @@ bool numeris(string temp) {
     return tiesa;
 }
 
+/**
+ * @brief Compare two students by their first names.
+ *
+ * @param a The first student to compare.
+ * @param b The second student to compare.
+ * @return true if the first student's first name is lexicographically smaller than the second student's first name, false otherwise.
+ */
 bool lyginimas_1(const studentas& a, const studentas& b) {
     return a.getVardas() < b.getVardas();
 }
 
+/**
+ * @brief Compare two students by their last names.
+ *
+ * @param a The first student to compare.
+ * @param b The second student to compare.
+ * @return true if the first student's last name is lexicographically smaller than the second student's last name, false otherwise.
+ */
 bool lyginimas_2(const studentas& a, const studentas& b) {
     return a.getPavarde() < b.getPavarde();
 }
 
+/**
+ * @brief Compare two students by their average grade.
+ *
+ * @param a The first student to compare.
+ * @param b The second student to compare.
+ * @return true if the first student's average grade is smaller than the second student's average grade, false otherwise.
+ */
 bool lyginimas_3(const studentas& a, const studentas& b) {
     return a.getVid() < b.getVid();
 }
 
+/**
+ * @brief Compare two students by their median grade.
+ *
+ * @param a The first student to compare.
+ * @param b The second student to compare.
+ * @return true if the first student's median grade is smaller than the second student's median grade, false otherwise.
+ */
 bool lyginimas_4(const studentas& a, const studentas& b) {
     return a.getMed() < b.getMed();
 }
 
+/**
+ * @brief Generate random grades for a student.
+ *
+ * The function generates a random number of grades and sets them for the given student.
+ *
+ * @param temp The student to generate grades for.
+ * @param m The number of students.
+ */
 void atsitiktinis(studentas& temp, int m) {
     srand((unsigned int)time(NULL));
     int skaic, sk_kiek = -1;
@@ -60,6 +106,14 @@ void atsitiktinis(studentas& temp, int m) {
     temp.setEgz(skaic);
 }
 
+/**
+ * @brief Read student data from user input.
+ *
+ * The function reads student data from user input and stores it in a vector.
+ *
+ * @param temp The vector to store the student data in.
+ * @param m The number of students.
+ */
 void pild(vector<studentas>& temp, int& m) {
     studentas st;
     string t, egz, paz, sk;
@@ -133,6 +187,15 @@ void pild(vector<studentas>& temp, int& m) {
     }
 }
 
+/**
+ * @brief Read student data from a file.
+ *
+ * The function reads student data from a file and stores it in a vector.
+ *
+ * @param temp The vector to store the student data in.
+ * @param m The number of students.
+ * @param pav The path to the file.
+ */
 void pild_failas(vector <studentas>& temp, int& m, string pav) {
     studentas st;
     string fill, x, t;
@@ -186,6 +249,16 @@ void pild_failas(vector <studentas>& temp, int& m, string pav) {
 
 }
 
+/**
+@brief Splits the students into two groups based on their average score
+
+This function splits the given vector of students into two groups based on their
+average score. The students whose average score is less than 5.0 are moved to the
+second vector, and the remaining students are left in the first vector.
+
+@param temp The vector of students to split
+@param liudnukai The vector to move the students with less than 5.0 average score
+*/
 void skirstymas(vector<studentas>& temp, vector<studentas>& liudnukai) {
     std::copy_if(temp.begin(), temp.end(),
         std::back_inserter(liudnukai), [](const auto& i) {return i.getVid() < 5.0; });
@@ -195,6 +268,17 @@ void skirstymas(vector<studentas>& temp, vector<studentas>& liudnukai) {
         temp.end());
 }
 
+/**
+@brief Prints the student data to a file
+
+This function prints the data of the given vector of students to a file. The file name is
+given as an argument. The function also takes a string argument to specify whether to
+calculate the final grade using average or median score.
+
+@param temp The vector of students whose data needs to be printed
+@param skaiciuokle A string to specify how to calculate the final grade (average or median)
+@param out_pav The name of the file to write the output to
+*/
 void spausd(vector<studentas> temp, string skaiciuokle, string out_pav) {
     ofstream zmogeliukai(out_pav);
     char eilut[100];
