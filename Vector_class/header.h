@@ -3,8 +3,20 @@
 
 #include "MyLib.h"
 
+class zmogus {
+protected: 
+    string vardas, pavarde;
+public:
+    zmogus() {
+        vardas = "Vardenis";
+        pavarde = "Pavardenis";
+    }
+    virtual void setVardas(string& vard) { vardas = vard; }
+    virtual void setPavarde(string& pav) { pavarde = pav; }
+    virtual void info() = 0;
+};
 
-class studentas {
+class studentas : public zmogus {
 private:
     string vardas, pavarde;
     vector<int> paz;
@@ -80,6 +92,11 @@ public:
     inline int getGal(int i) const { return gal; }
     void setGal(int gal_) { gal = gal_; }
 
+    void info()
+    {
+        cout << getPavarde() << " " << getVardas() << " " << getEgz() << endl;
+    }
+
 };
 
 bool numeris(string temp);
@@ -87,7 +104,7 @@ bool lyginimas_1(const studentas& a, const studentas& b);
 bool lyginimas_2(const studentas& a, const studentas& b);
 bool lyginimas_3(const studentas& a, const studentas& b);
 bool lyginimas_4(const studentas& a, const studentas& b);
-void atsitiktinis(vector<studentas>& temp, int m);
+void atsitiktinis(studentas& temp, int m);
 void pild(vector<studentas>& temp, int& m);
 void pild_failas(vector <studentas>& temp, int& m, string pav);
 void spausd(vector<studentas> temp, string skaiciuokle, string out_pav);
