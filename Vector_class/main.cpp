@@ -1,15 +1,41 @@
-﻿#include "header.h"
+/**
+
+@file main.cpp
+@brief A program for managing student records and calculating their final grades.
+The program allows the user to input student records manually or from a file, and calculate their final grades
+using either the average or median method. The program can also sort the records by name or final grade.
+
+*/
+#include "header.h"
 #include "MyLib.h"
 
+/**
+
+@brief Main function of the program
+
+@return 0 on successful execution
+*/
 
 int main() {
-    time_point<high_resolution_clock> start, end;
-    duration<double> laikas;
-    double generavimo_laikas = 0, nuskaitymo_laikas = 0, skirstymo_laikas = 0, liudnuku_laikas = 0, linksmuku_laikas = 0, rusiavimo_laikas = 0;
-    int m = 0;
-    string indeksas, skaiciuokle = "-1", rusiavimas, failai, pav, out_pav, testavimas;
-    vector <studentas> stud, liudnukai;
-    studentas st;
+    time_point<high_resolution_clock> start, end; /// Time points used to calculate execution times
+    duration<double> laikas; /// Duration used to store execution times
+    double generavimo_laikas = 0, nuskaitymo_laikas = 0, skirstymo_laikas = 0, liudnuku_laikas = 0, linksmuku_laikas = 0, rusiavimo_laikas = 0; /// Variables to store execution times
+    int m = 0; /// Number of students
+    string indeksas, skaiciuokle = "-1", rusiavimas, failai, pav, out_pav, testavimas; /// String variables for user input
+    vector <studentas> stud, liudnukai; /// Vector of student records
+    studentas st; /// Temporary student record object
+ /**
+ @brief Allows user to choose whether to input data or read it from a file.
+
+ @details If the user chooses to input the data, the function pild() is called.
+ If the user chooses to read data from a file, the function pild_failas() or generavimas()
+ is called depending on the user's input, and then the data is read from the file.
+
+ @param stud Vector of student objects.
+ @param m Integer value indicating the number of grades for each student.
+
+ @return None.
+ */
     do {
         cout << "Ar norite duomenis ivesti patys ar norite nuskaityti is failo ('1' - ivesti patys, '0' - nuskaityti is failo): ";
         cin >> indeksas;
@@ -51,6 +77,18 @@ int main() {
         }
 
     } while (indeksas != "1" && indeksas != "0");
+ /**
+ * @brief Calculates the final grade for each student using either the average or the median.
+ *
+ * @details If the user chooses to input the data, the final grade is calculated using
+ * either the average or the median depending on the user's input. If the user chooses to
+ * read the data from a file, the final grade is calculated using the average.
+ *
+ * @param stud Vector of student objects.
+ * @param skaiciuokle String value indicating the method of calculation for the final grade ('1' - average, '0' - median).
+ *
+ * @return None.
+ */
     if (indeksas == "1") {
         cout << "Pasirinkite kokiu budu norite skaiciuoti galutini bala: '1' - vidurkiui, '0' - medianai: ";
         cin >> skaiciuokle;
@@ -88,6 +126,17 @@ int main() {
             }
         }
     }
+/**
+ * @brief Sorts the vector of student objects based on the user's choice.
+ *
+ * @details The vector is sorted based on the user's input, which can be either by name,
+ * surname, final grade (average), or final grade (median).
+ *
+ * @param stud Vector of student objects.
+ * @param rusiavimas String value indicating the sorting method ('1' - by name, '2' - by surname, '3' - by final grade (average), '4' - by final grade (median)).
+ *
+ * @return None.
+*/
     cout << "Pasirinkite kokiu budu norite isrusiuoti studentus: '1' - Pagal varda, '2' - Pagal pavarde, '3' - Pagal Galutini bala(Vid.), '4' - Pagal Galutini bala(Med.): ";
     cin >> rusiavimas;
     while (rusiavimas != "1" && rusiavimas != "2" && rusiavimas != "3" && rusiavimas != "4") {
