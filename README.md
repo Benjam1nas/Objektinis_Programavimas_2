@@ -100,5 +100,6 @@ V1.2 versijoje pakeistas header failas. Sukurtas destruktorius nebereikalingai a
 <img width="287" alt="Header update 1 2" src="https://user-images.githubusercontent.com/116347949/236667414-314829a4-d63f-4040-a215-4e82ceda6494.png">
 
 V1.5 versijoje sukurta bazinė klasė zmogus ir padarytą išvestinė studentas.
+      
 <img width="353" alt="base" src="https://github.com/Benjam1nas/Objektinis_Programavimas_2/assets/116347949/26a93314-2eef-4727-9d1a-e4b3b6b49195">
 
