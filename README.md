@@ -87,6 +87,11 @@ SSD: <img width="349" alt="Screenshot 2023-03-31 132646" src="https://user-image
 Užduotis:
 1. Pratęskite (tuo pačiu ir patobulinkite) 2-osios užduoties Jūsų turimą programos realizaciją (versiją v1.0) taip, kad vietoje Jūsų sukurtos Studentas (StudentoInfo) ar dar kitaip pavadintos Studentų structūros jos pagrindu sukurkite class'ę, vadovaujantis per teorijos paskaitas nurodomomis "geromis praktikomis".
 2. Realizuokite visus reikiamus (realizuokitė "Rule of  five") ir labiausiai tinkančius Jūsų programos veikimui pagerinti (mažiausiai vieną, turintį prasmę - t.y. cout ar cin) ir tik šiuos operatorius Jūsų turimai Studentas klasei. Pažymiu, kad nebūtinai visi realizuoti operatoriai turi būti panaudoti Jūsų programose - atminkite, kad Jūs kuriate/kursite programas ne tik sau, todėl įvertinkite ko gali prireikti ateities vartotojams naudojantiems Jūsų Studentas klasę!
+3. Vietoje Jūsų turimos vienos Studentas (ar kažkaip kitaip pavadintos) klasės sukurkite dvi: bazinę klasę, skirtą bendrai aprašyti žmogų ir tuomet iš jos išvestinę (derived) klasę - Studentas.
+4. Padarykite, kad žmogui skirta bazinė klasė būtų abstrakčioji klasė, t.y. nebūtų galima sukurti žmogaus tipo objektų, o tik objektus gautus iš jos išvestinių klasių
+5. Sukurkite dokumentaciją panaudojant Doxygen 1.5 projekto pagrindu. Įkelkite dokumentaciją (kaip atskirą doxygen katalogą) į repoziciją.
+6. Realizuokite Unit Testus naudodami Jums labiausiai patinkantį C++ Unit testų framework'ą. Užtenka pademonstruoti, kad supratote, kam jie reikalingi, t.y. užtenka kelių testų. 
+7. Sukurkite 1.5 versijai automatinį įdiegimo failą (setup.msi arba setup.exe)
 
 Failo veikimo sparta:
 
@@ -102,4 +107,6 @@ V1.2 versijoje pakeistas header failas. Sukurtas destruktorius nebereikalingai a
 V1.5 versijoje sukurta bazinė klasė zmogus ir padarytą išvestinė studentas.
       
 <img width="353" alt="base" src="https://github.com/Benjam1nas/Objektinis_Programavimas_2/assets/116347949/26a93314-2eef-4727-9d1a-e4b3b6b49195">
+
+V2.0 Versijoje sukurta dokumentacija doxygen html principu. Aprašyti komentarai matomi programos kode. Taip pat padaryti Unit Testai keletai funkciju. Padaryti Test_Case numeris funkcijai. Tikrinama ar funkcija grąžina true, kai vartotojas įvedė numerį, funkcija grąžina false, kai vartotojas įvedė ne numeri ir ar funkcija grąžina false, kai vartotojas įveda numerį kartu su raidėmis. Taip pat padaryti Test_Case, kurie tikrina ar yra tinkamas liudnuku ir linksmuku skirstymas. Principas panašus tikrinama, kai vidurkis yra daugiau už penkis ar tam tikrų vektorių dydžiai yra teisingi. Taip pat V2.0 yra sukurtas įdiegimo failas dll principu.
 
