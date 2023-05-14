@@ -1,0 +1,13 @@
+﻿  AppWithDLL.cpp
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\Dll_Test\Dll1\AppWithDLL\AppWithDLL.cpp(93,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\Dll_Test\Dll1\AppWithDLL\AppWithDLL.cpp(110,27): warning C4018: '<': signed/unsigned mismatch
+AppWithDLL.obj : error LNK2001: unresolved external symbol __imp__lyginimas_2
+AppWithDLL.obj : error LNK2001: unresolved external symbol __imp__spausd
+AppWithDLL.obj : error LNK2001: unresolved external symbol __imp__lyginimas_1
+AppWithDLL.obj : error LNK2001: unresolved external symbol __imp__lyginimas_4
+AppWithDLL.obj : error LNK2001: unresolved external symbol __imp__lyginimas_3
+AppWithDLL.obj : error LNK2001: unresolved external symbol __imp__pild_failas
+AppWithDLL.obj : error LNK2001: unresolved external symbol __imp__pild
+AppWithDLL.obj : error LNK2001: unresolved external symbol __imp__skirstymas
+AppWithDLL.obj : error LNK2001: unresolved external symbol __imp__generavimas
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\Dll_Test\Dll1\Release\AppWithDLL.exe : fatal error LNK1120: 9 unresolved externals

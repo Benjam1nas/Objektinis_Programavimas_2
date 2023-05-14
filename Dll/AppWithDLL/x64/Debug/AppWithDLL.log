@@ -1,0 +1,13 @@
+﻿  AppWithDLL.cpp
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\Dll_Test\Dll1\Dll1\Dll.h(186,25): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\Dll_Test\Dll1\Dll1\Dll.h(208,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+AppWithDLL.obj : error LNK2019: unresolved external symbol __imp_lyginimas_1 referenced in function main
+AppWithDLL.obj : error LNK2019: unresolved external symbol __imp_lyginimas_2 referenced in function main
+AppWithDLL.obj : error LNK2019: unresolved external symbol __imp_lyginimas_3 referenced in function main
+AppWithDLL.obj : error LNK2019: unresolved external symbol __imp_lyginimas_4 referenced in function main
+AppWithDLL.obj : error LNK2019: unresolved external symbol __imp_pild referenced in function main
+AppWithDLL.obj : error LNK2019: unresolved external symbol __imp_pild_failas referenced in function main
+AppWithDLL.obj : error LNK2019: unresolved external symbol __imp_spausd referenced in function main
+AppWithDLL.obj : error LNK2019: unresolved external symbol __imp_generavimas referenced in function main
+AppWithDLL.obj : error LNK2019: unresolved external symbol __imp_skirstymas referenced in function main
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\Dll_Test\Dll1\x64\Debug\AppWithDLL.exe : fatal error LNK1120: 9 unresolved externals
