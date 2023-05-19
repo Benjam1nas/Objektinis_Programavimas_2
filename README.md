@@ -136,3 +136,12 @@ V1.5 versijoje sukurta bazinė klasė zmogus ir padarytą išvestinė studentas.
 V2.0 Versijoje sukurta dokumentacija doxygen html principu. Aprašyti komentarai matomi programos kode. Taip pat padaryti Unit Testai keletai funkciju. Padaryti Test_Case numeris funkcijai. Tikrinama ar funkcija grąžina true, kai vartotojas įvedė numerį, funkcija grąžina false, kai vartotojas įvedė ne numeri ir ar funkcija grąžina false, kai vartotojas įveda numerį kartu su raidėmis. Taip pat padaryti Test_Case, kurie tikrina ar yra tinkamas liudnuku ir linksmuku skirstymas. Principas panašus tikrinama, kai vidurkis yra daugiau už penkis ar tam tikrų vektorių dydžiai yra teisingi. Taip pat V2.0 yra sukurtas įdiegimo failas dll principu.
 
 # V3.0
+
+Realizuotos std::vector funkcijos klasėje MyVector (pvz: clear, push_back, pop_back, reserve, resize)
+      
+|Tipai      |100000   |1000000|10000000|100000000|
+|-----------|---------|-------|--------|---------|
+|std::vector|0.0089s  |0.054s |0.33s   |3s       | 
+|MyVector   |0.066s   |0.068s |0.53s   |3.5s     | 
+      
+Atminties perskirstymai std::vector - 42, MyVector -
