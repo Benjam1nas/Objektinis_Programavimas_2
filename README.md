@@ -137,7 +137,7 @@ V2.0 Versijoje sukurta dokumentacija doxygen html principu. Aprašyti komentarai
 
 # V3.0
 
-Realizuotos std::vector funkcijos klasėje MyVector (pvz: clear, push_back, pop_back, reserve, resize)
+Realizuotos std::vector funkcijos klasėje MyVector (pvz: shrink_to_fit, push_back, pop_back, reserve, resize)
       
 |Tipai      |100000   |1000000|10000000|100000000|
 |-----------|---------|-------|--------|---------|
