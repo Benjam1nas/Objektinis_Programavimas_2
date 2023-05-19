@@ -144,4 +144,4 @@ Realizuotos std::vector funkcijos klasėje MyVector (pvz: clear, push_back, pop_
 |std::vector|0.00078s |0.0045s|0.057s  |0.51s    | 
 |MyVector   |0.00021s |0.004s |0.044s  |0.42s    | 
       
-Atminties perskirstymai std::vector - 42, MyVector -
+Atminties perskirstymai std::vector - 42, MyVector - 25
