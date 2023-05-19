@@ -1,0 +1,9 @@
+﻿  Vector_Test.cpp
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\header.h(154,25): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\header.h(176,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\Vector_Test.cpp(11,20): warning C4018: '<=': signed/unsigned mismatch
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\Vector_Test.cpp(19,20): warning C4018: '<=': signed/unsigned mismatch
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\MyVector.h(9,1): error C2661: 'MyVector<int>::create': no overloaded function takes 0 arguments
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\MyVector.h(9): message : while compiling class template member function 'MyVector<int>::MyVector(void)'
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\Vector_Test.cpp(17): message : see reference to function template instantiation 'MyVector<int>::MyVector(void)' being compiled
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\Vector_Test.cpp(17): message : see reference to class template instantiation 'MyVector<int>' being compiled

@@ -1,0 +1,20 @@
+﻿  Vector_Test.cpp
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\header.h(154,25): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\header.h(176,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\Vector_Test.cpp(13,20): warning C4018: '<=': signed/unsigned mismatch
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\Vector_Test.cpp(23,20): warning C4018: '<=': signed/unsigned mismatch
+  func.cpp
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\header.h(154,25): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\header.h(176,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  generator.cpp
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\header.h(154,25): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\header.h(176,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  main.cpp
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\header.h(154,25): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\MyVector\header.h(176,29): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  Generating code
+  218 of 485 functions (44.9%) were compiled, the rest were copied from previous compilation.
+    83 functions were new in current compilation
+    54 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  MyVector.vcxproj -> C:\Users\benas\OneDrive\Desktop\Darbai\Obj\MyVector\x64\Release\MyVector.exe
