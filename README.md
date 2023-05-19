@@ -110,6 +110,8 @@ for (int i = 1; i <= sz; ++i)
 11. Jūsų trečiojo darbo programoje vietoje std::vector panaudokite sukurtą Vector ir įsitikinkite, kad naudojant Vector Jūsų trečiojo darbo programa veikia teisingai.
 12. Atlikite spartos analizę, t.y. naudojant duomenų failą su 100000 studentų įrašų, palyginkite kiek laiko užtrunka programos veikimas naudojant std::vector ir Vector realizacijas (matuokite visas std::vector ir Vector operacijas).
 
+# V1.1                      
+
 Failo veikimo sparta:
 
 |Tipas  |1000     |10000  |100000 |1000000|10000000|
@@ -117,13 +119,20 @@ Failo veikimo sparta:
 |Class  |0.0089s  |0.054s |0.33s  |3s     |39s     |
 |Struct |0.066s   |0.068s |0.53s  |3.5s   |48s     |
 
+# V1.2                     
+                       
 V1.2 versijoje pakeistas header failas. Sukurtas destruktorius nebereikalingai atminčiai naikinti, kopijavimo konstruktorius, kuris kuria kopijas kito objekto taip taupant atmintį, kopijavimo priskirimo konstruktorius, kuris priskiria reikšmes. 
 
 <img width="287" alt="Header update 1 2" src="https://user-images.githubusercontent.com/116347949/236667414-314829a4-d63f-4040-a215-4e82ceda6494.png">
+      
+# V1.5
 
 V1.5 versijoje sukurta bazinė klasė zmogus ir padarytą išvestinė studentas.
       
 <img width="353" alt="base" src="https://github.com/Benjam1nas/Objektinis_Programavimas_2/assets/116347949/26a93314-2eef-4727-9d1a-e4b3b6b49195">
+      
+# V2.0
 
 V2.0 Versijoje sukurta dokumentacija doxygen html principu. Aprašyti komentarai matomi programos kode. Taip pat padaryti Unit Testai keletai funkciju. Padaryti Test_Case numeris funkcijai. Tikrinama ar funkcija grąžina true, kai vartotojas įvedė numerį, funkcija grąžina false, kai vartotojas įvedė ne numeri ir ar funkcija grąžina false, kai vartotojas įveda numerį kartu su raidėmis. Taip pat padaryti Test_Case, kurie tikrina ar yra tinkamas liudnuku ir linksmuku skirstymas. Principas panašus tikrinama, kai vidurkis yra daugiau už penkis ar tam tikrų vektorių dydžiai yra teisingi. Taip pat V2.0 yra sukurtas įdiegimo failas dll principu.
 
+# V3.0
