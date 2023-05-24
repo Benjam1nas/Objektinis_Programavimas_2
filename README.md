@@ -87,6 +87,16 @@ Dequeai:
 |1000000    |11s              |1.9s            |2s              |
 |10000000   |80s              |24s             |49s             |
       
+Bendras vykdymas:
+      
+|Tipas |1000  |10000 |100000|
+|------|------|------|------|
+|Vector|0.041s|0.45s |3.9s  |
+|Deque |0.069s|0.48s |4.6s  |
+|List  |1s    |0.19s |0.19s |
+
+
+      
 Kompiuterio parametrai:
 RAM: 8.00 GB (7.73 GB usable)
 CPU: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz   1.38 GHz
