@@ -50,6 +50,33 @@ public:
         return *this;
     }
 
+    //Move konstruktorius
+    studentas(studentas&& temp) noexcept {
+        vardas = std::move(temp.vardas);
+        pavarde = std::move(temp.pavarde);
+        paz = std::move(temp.paz);
+        egz = std::move(temp.egz);
+        suma = std::move(temp.suma);
+        galutinis_vid = std::move(temp.galutinis_vid);
+        galutinis_med = std::move(temp.galutinis_med);
+        gal = std::move(temp.gal);
+
+    }
+
+    studentas& operator=(studentas&& temp) noexcept {
+        if (this != &temp) {
+            vardas = std::move(temp.vardas);
+            pavarde = std::move(temp.pavarde);
+            paz = std::move(temp.paz);
+            egz = std::move(temp.egz);
+            suma = std::move(temp.suma);
+            galutinis_vid = std::move(temp.galutinis_vid);
+            galutinis_med = std::move(temp.galutinis_med);
+            gal = std::move(temp.gal);
+
+        }
+        return *this;
+    }
 
     inline string getVardas() const { return vardas; }
     void setVardas(string vardas_) { vardas = vardas_; }
@@ -62,7 +89,7 @@ public:
     void backPaz() { paz.pop_back(); }
     void clearPaz() { paz.clear(); }
     inline int getPazSize() { return paz.size(); }
-    
+
     inline int getEgz() const { return egz; }
     void setEgz(int egz_) { egz = egz_; }
 
