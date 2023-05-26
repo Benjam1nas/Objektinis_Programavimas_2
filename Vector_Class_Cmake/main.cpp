@@ -1,4 +1,4 @@
-﻿/**
+/**
 
 @file main.cpp
 @brief A program for managing student records and calculating their final grades.
@@ -122,7 +122,7 @@ int main() {
                 stud[i].setMed((double)(stud[i].getPaz(stud[i].pazSize() / 2)));
             }
             else {
-                stud[i].setMed((double)stud[i].getPaz(stud[i].pazSize() / 2) + (double)(stud[i].getPaz(stud[i].pazSize() / 2 - 1) / 2));
+                stud[i].setMed(((double)stud[i].getPaz(stud[i].pazSize() / 2 - 1) + (double)stud[i].getPaz(stud[i].pazSize() / 2)) / 2);
             }
         }
     }
