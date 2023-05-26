@@ -72,6 +72,7 @@ Failas su vektoriais yra vector_main kataloge, listais - list_main kataloge, deq
 |Vector                           |0.012s   |0.24s  |49s    |...    |...     |
 |Vector(su remove_if ir copy_if)  |0.0003s  |0.0012s|0.018s |0.21s  |3.1s    |
 |List                             |0.00026s |0.0017s|0.02s  |0.25s  |23s     |
+|List(su remove_if ir copy_if)    |0.00028s |0.0019s|0.04s  |0.44s  |5s      |
 |Deque                            |0.00027s |0.0028s|0.048s |0.58s  |19s     |
 |Deque(su remove_if ir copy_if)   |0.00048s |0.0029s|0.047s |0.7s   |13s     |
 
