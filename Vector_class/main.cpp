@@ -1,8 +1,30 @@
-﻿#include "header.h"
 #include "MyLib.h"
-
+#include "header.h"
 
 int main() {
+    studentas test;
+    test.setVardas("Noriu");
+    test.setPavarde("Desimtuko");
+    test.setEgz(10);
+    test.setPaz(10);
+    test.setPaz(9);
+    cout << "Test: " << test << endl;
+    studentas test2(test);
+    cout << "Test2 Copy konstruktorius: " << test2 << endl;
+    studentas test3;
+    test3 = test2;
+    cout << "Test3 Copy priskirimas: " << test3 << endl;
+    studentas test4 = std::move(studentas());
+    studentas test5;
+    test5 = std::move(test3);
+    cout << "Test3 Move konstruktorius(tuscias): " << test3 << endl;
+    cout << "Test5 Move priskirimo konstruktorius(priskirtas test3): " << test5 << endl;
+    studentas test6;
+    cout << "Iveskite varda, pavarde ir egzamino bala: ";
+    cin >> test6;
+    cout << test6 << endl;
+
+
     time_point<high_resolution_clock> start, end;
     duration<double> laikas;
     double generavimo_laikas = 0, nuskaitymo_laikas = 0, skirstymo_laikas = 0, liudnuku_laikas = 0, linksmuku_laikas = 0, rusiavimo_laikas = 0;
@@ -82,9 +104,10 @@ int main() {
             stud[i].setVid(stud[i].getSum() / stud[i].pazSize() * 0.4 + stud[i].getEgz() * 0.6);
             if (stud[i].pazSize() % 2 != 0) {
                 stud[i].setMed((double)(stud[i].getPaz(stud[i].pazSize() / 2)));
+                
             }
             else {
-                stud[i].setMed((double)stud[i].getPaz(stud[i].pazSize() / 2) + (double)(stud[i].getPaz(stud[i].pazSize() / 2 - 1) / 2));
+               stud[i].setMed(((double)stud[i].getPaz(stud[i].pazSize() / 2 - 1) + (double)stud[i].getPaz(stud[i].pazSize() / 2)) / 2);
             }
         }
     }
@@ -135,7 +158,7 @@ int main() {
     laikas = end - start;
     linksmuku_laikas = laikas.count();
 
-    cout << "Failo veikimo laikas: " << setprecision(2) << nuskaitymo_laikas + skirstymo_laikas + 
+    cout << "Failo veikimo laikas: " << setprecision(2) << nuskaitymo_laikas + skirstymo_laikas +
         liudnuku_laikas + linksmuku_laikas + rusiavimo_laikas << endl;
     return 0;
 }
