@@ -95,7 +95,9 @@ Failo veikimo sparta:
 |Class  |0.0089s  |0.054s |0.33s  |3s     |39s     |
 |Struct |0.066s   |0.068s |0.53s  |3.5s   |48s     |
 
-V1.2 versijoje pakeistas header failas. Sukurtas destruktorius nebereikalingai atminčiai naikinti, kopijavimo konstruktorius, kuris kuria kopijas kito objekto taip taupant atmintį, kopijavimo priskirimo konstruktorius, kuris priskiria reikšmes. 
+V1.2 versijoje pakeistas header failas. Sukurtas destruktorius, copy konstruktorius, copy priskirimo konstruktorius, move konstruktorius, move prisikirimo konstruktorius. Pridėtas overloading stream.
 
 <img width="287" alt="Header update 1 2" src="https://user-images.githubusercontent.com/116347949/236667414-314829a4-d63f-4040-a215-4e82ceda6494.png">
+<img width="308" alt="Screenshot 2023-05-26 094422" src="https://github.com/Benjam1nas/Objektinis_Programavimas_2/assets/116347949/ac7be661-ddd7-41ba-9fa3-51f1b6775d4a">
+<img width="464" alt="Screenshot 2023-05-26 094440" src="https://github.com/Benjam1nas/Objektinis_Programavimas_2/assets/116347949/32ab44f8-c87d-45e8-9930-e4bff2fea7b1">
 
