@@ -14,7 +14,9 @@ private:
     double galutinis_med;
     int gal;
 public:
-    studentas() {
+    studentas(string v = "Vardas", string p = "Pavarde") {
+        vardas = v;
+        pavarde = p;
         egz = 0;
         suma = 0;
         gal = -1;
@@ -50,7 +52,7 @@ public:
         return *this;
     }
 
-    //Move konstruktorius
+    //Move konstruktorius 
     studentas(studentas&& temp) noexcept {
         vardas = std::move(temp.vardas);
         pavarde = std::move(temp.pavarde);
@@ -63,6 +65,7 @@ public:
 
     }
 
+    //Move priskirimo konstruktorius
     studentas& operator=(studentas&& temp) noexcept {
         if (this != &temp) {
             vardas = std::move(temp.vardas);
@@ -76,6 +79,18 @@ public:
 
         }
         return *this;
+    }
+
+    //Input operatorius
+    friend std::istream& operator>>(std::istream& input, studentas& studentas) {
+        input >> studentas.vardas >> studentas.pavarde >> studentas.egz;
+        return input;
+    }
+
+    //Output operatorius
+    friend std::ostream& operator<<(std::ostream& output, const studentas& studentas) {
+        output << studentas.vardas << " " << studentas.pavarde << " " << studentas.egz;
+        return output;
     }
 
     inline string getVardas() const { return vardas; }
