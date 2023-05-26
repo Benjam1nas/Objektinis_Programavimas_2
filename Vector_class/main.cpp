@@ -1,8 +1,29 @@
-﻿#include "header.h"
 #include "MyLib.h"
-
+#include "header.h"
 
 int main() {
+    studentas test;
+    test.setVardas("Noriu");
+    test.setPavarde("Desimtuko");
+    test.setEgz(10);
+    test.setPaz(10);
+    test.setPaz(9);
+    cout << test << endl;
+    studentas test2(test);
+    studentas test3;
+    test3 = test2;
+    studentas test4 = std::move(studentas("Gaunu", "Devynis"));
+    studentas test5;
+    test5 = std::move(test3);
+    cout << test5 << endl;
+    cout << test4 << endl;
+
+    studentas test6;
+    cout << "Iveskite varda, pavarde ir egzamino bala: ";
+    cin >> test6;
+    cout << test6 << endl;
+
+
     time_point<high_resolution_clock> start, end;
     duration<double> laikas;
     double generavimo_laikas = 0, nuskaitymo_laikas = 0, skirstymo_laikas = 0, liudnuku_laikas = 0, linksmuku_laikas = 0, rusiavimo_laikas = 0;
@@ -135,7 +156,7 @@ int main() {
     laikas = end - start;
     linksmuku_laikas = laikas.count();
 
-    cout << "Failo veikimo laikas: " << setprecision(2) << nuskaitymo_laikas + skirstymo_laikas + 
+    cout << "Failo veikimo laikas: " << setprecision(2) << nuskaitymo_laikas + skirstymo_laikas +
         liudnuku_laikas + linksmuku_laikas + rusiavimo_laikas << endl;
     return 0;
 }
