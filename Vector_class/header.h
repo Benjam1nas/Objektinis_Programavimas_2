@@ -4,7 +4,7 @@
 #include "MyLib.h"
 
 class zmogus {
-protected: 
+protected:
     string vardas, pavarde;
 public:
     zmogus() {
@@ -14,11 +14,11 @@ public:
     virtual void setVardas(string& vard) { vardas = vard; }
     virtual void setPavarde(string& pav) { pavarde = pav; }
     virtual void info() = 0;
+
 };
 
 class studentas : public zmogus {
 private:
-    string vardas, pavarde;
     vector<int> paz;
     int egz;
     double suma;
@@ -26,7 +26,9 @@ private:
     double galutinis_med;
     int gal;
 public:
-    studentas() {
+    studentas() : zmogus() {
+        vardas = "Vardenis";
+        pavarde = "Pavardenis";
         egz = 0;
         suma = 0;
         gal = -1;
@@ -62,6 +64,55 @@ public:
         return *this;
     }
 
+    //Move konstruktorius 
+    studentas(studentas&& temp) noexcept {
+        vardas = std::move(temp.vardas);
+        pavarde = std::move(temp.pavarde);
+        paz = std::move(temp.paz);
+        egz = std::move(temp.egz);
+        suma = std::move(temp.suma);
+        galutinis_vid = std::move(temp.galutinis_vid);
+        galutinis_med = std::move(temp.galutinis_med);
+        gal = std::move(temp.gal);
+
+        temp.vardas = "";
+        temp.pavarde = "";
+        temp.egz = 0;
+        temp.suma = 0;
+        temp.galutinis_med = 0;
+        temp.galutinis_vid = 0;
+        temp.gal = -1;
+
+    }
+
+    //Move priskirimo konstruktorius
+    studentas& operator=(studentas&& temp) noexcept {
+        if (this != &temp) {
+            vardas = std::move(temp.vardas);
+            pavarde = std::move(temp.pavarde);
+            paz = std::move(temp.paz);
+            egz = std::move(temp.egz);
+            suma = std::move(temp.suma);
+            galutinis_vid = std::move(temp.galutinis_vid);
+            galutinis_med = std::move(temp.galutinis_med);
+            gal = std::move(temp.gal);
+
+        }
+        return *this;
+    }
+
+    //Input operatorius
+    friend std::istream& operator>>(std::istream& input, studentas& studentas) {
+        input >> studentas.vardas >> studentas.pavarde >> studentas.egz;
+        return input;
+    }
+
+    //Output operatorius
+    friend std::ostream& operator<<(std::ostream& output, const studentas& studentas) {
+        output << studentas.vardas << " " << studentas.pavarde << " " << studentas.egz;
+        return output;
+    }
+
 
     inline string getVardas() const { return vardas; }
     void setVardas(string vardas_) { vardas = vardas_; }
@@ -74,7 +125,7 @@ public:
     void backPaz() { paz.pop_back(); }
     void clearPaz() { paz.clear(); }
     inline int getPazSize() { return paz.size(); }
-    
+
     inline int getEgz() const { return egz; }
     void setEgz(int egz_) { egz = egz_; }
 
