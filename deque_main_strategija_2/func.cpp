@@ -179,15 +179,12 @@ void pild_failas(deque <studentas>& temp, int& m, string pav) {
 }
 
 void skirstymas(deque<studentas>& temp, deque<studentas>& liudnukai) {
-    for (auto i = temp.begin(); i != temp.end(); ) {
-        if (i->galutinis_vid < 5.0) {
-            liudnukai.push_back(*i);
-            i = temp.erase(i);
-        }
-        else {
-            i++;
-        }
-    }
+    std::copy_if(temp.begin(), temp.end(),
+        std::back_inserter(liudnukai), [](const auto& i) {return i.galutinis_vid < 5.0; });
+
+    temp.erase(std::remove_if(temp.begin(), temp.end(),
+        [](const auto& i) { return i.galutinis_vid < 5.0; }),
+        temp.end());
 }
 
 void spausd(deque<studentas> temp, string skaiciuokle, string out_pav) {
