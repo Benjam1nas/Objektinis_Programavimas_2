@@ -37,7 +37,7 @@ int main() {
     @return None.
     */
 
-    //testVector();
+    testVector();
 
     do {
         cout << "Ar norite duomenis ivesti patys ar norite nuskaityti is failo ('1' - ivesti patys, '0' - nuskaityti is failo): ";
@@ -125,7 +125,7 @@ int main() {
                 stud[i].setMed((double)(stud[i].getPaz(stud[i].pazSize() / 2)));
             }
             else {
-                stud[i].setMed((double)stud[i].getPaz(stud[i].pazSize() / 2) + (double)(stud[i].getPaz(stud[i].pazSize() / 2 - 1) / 2));
+                stud[i].setMed(((double)stud[i].getPaz(stud[i].pazSize() / 2 - 1) + (double)stud[i].getPaz(stud[i].pazSize() / 2)) / 2);
             }
         }
     }
