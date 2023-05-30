@@ -1,4 +1,4 @@
-/**
+﻿/**
 
 @file header.h
 @brief Header file containing declarations of classes and functions used for processing student data.
@@ -14,8 +14,8 @@ and reading/writing data to files.
 #ifndef HEADER_H_INCLUDED
 #define HEADER_H_INCLUDED
 
-#include "MyLib.h"
 #include "MyVector.h"
+#include "MyLib.h"
 
 class zmogus {
 protected:
@@ -55,8 +55,7 @@ public:
 
 class studentas : public zmogus {
 private:
-    string vardas, pavarde; // name, surname
-    MyVector<int> paz; // grades
+    vector<int> paz; // grades
     int egz; // exam grade
     double suma; // sum of grades
     double galutinis_vid; // final grade calculated using average method
@@ -68,16 +67,18 @@ private:
     * Initializes the "egz", "suma", and "gal" members to default values.
     */
 public:
-    studentas() {
-        egz = 0;
-        suma = 0;
-        gal = -1;
-    }
     /**
     * @brief Destructor for the "studentas" class.
     *
     * Clears the "paz" vector.
     */
+    studentas() : zmogus() {
+        vardas = "Vardenis";
+        pavarde = "Pavardenis";
+        egz = 0;
+        suma = 0;
+        gal = -1;
+    }
     ~studentas() { paz.clear(); }
 
     /**
@@ -114,6 +115,55 @@ public:
             gal = temp.gal;
         }
         return *this;
+    }
+
+    //Move konstruktorius 
+    studentas(studentas&& temp) noexcept {
+        vardas = std::move(temp.vardas);
+        pavarde = std::move(temp.pavarde);
+        paz = std::move(temp.paz);
+        egz = std::move(temp.egz);
+        suma = std::move(temp.suma);
+        galutinis_vid = std::move(temp.galutinis_vid);
+        galutinis_med = std::move(temp.galutinis_med);
+        gal = std::move(temp.gal);
+
+        temp.vardas = "";
+        temp.pavarde = "";
+        temp.egz = 0;
+        temp.suma = 0;
+        temp.galutinis_med = 0;
+        temp.galutinis_vid = 0;
+        temp.gal = -1;
+
+    }
+
+    //Move priskirimo konstruktorius
+    studentas& operator=(studentas&& temp) noexcept {
+        if (this != &temp) {
+            vardas = std::move(temp.vardas);
+            pavarde = std::move(temp.pavarde);
+            paz = std::move(temp.paz);
+            egz = std::move(temp.egz);
+            suma = std::move(temp.suma);
+            galutinis_vid = std::move(temp.galutinis_vid);
+            galutinis_med = std::move(temp.galutinis_med);
+            gal = std::move(temp.gal);
+
+        }
+        return *this;
+    }
+
+    //Input operatorius
+    friend std::istream& operator>>(std::istream& input, studentas& studentas) {
+        input >> studentas.vardas >> studentas.pavarde >> studentas.egz;
+        return input;
+    }
+
+    //Output operatorius
+    friend std::ostream& operator<<(std::ostream& output, const studentas& studentas) {
+        output << studentas.vardas << " " << studentas.pavarde << " " << studentas.egz;
+        return output;
     }
     /**
 
@@ -267,6 +317,5 @@ void pild_failas(vector <studentas>& temp, int& m, string pav);
 void spausd(vector<studentas> temp, string skaiciuokle, string out_pav);
 void generavimas(string& pav, double& generavimo_laikas);
 void skirstymas(vector<studentas>& temp, vector<studentas>& liudnukai);
-void testVector();
 
 #endif
